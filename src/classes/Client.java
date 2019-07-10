@@ -23,27 +23,27 @@ public class Client {
 	
 	public String extract() {
 		
-        final String endLine = System.getProperty("line.separator");
-        String result = "Registro de Alugueis de " + getName() + endLine;
-        
-        double amount = 0.0;
-        
-        int dotz = 0;
-        
-        for (Rent rent : leasedTapes) {
+		final String endLine = System.getProperty("line.separator");
+		String result = "Registro de Alugueis de " + getName() + endLine;
 
-            double currentValue = rent.getSubtotal();
-            dotz += rent.getDotz();
+		double amount = 0.0;
 
-            result += "\t" + rent.getTape().getTitle() + "\t" + currentValue + endLine;
-            amount += currentValue;
-            
-        }
-        
-        result += "Valor total devido: " + amount + endLine;
-        result += "Voce acumulou " + dotz + " pontos de alugador frequente";
-        
-        return result;
-    }
+		int dotz = 0;
+
+		for (Rent rent : leasedTapes) {
+
+		    double currentValue = rent.getSubtotal();
+		    dotz += rent.getDotz();
+
+		    result += "\t" + rent.getTape().getTitle() + "\t" + currentValue + endLine;
+		    amount += currentValue;
+
+		}
+
+		result += "Valor total devido: " + amount + endLine;
+		result += "Voce acumulou " + dotz + " pontos de alugador frequente";
+
+		return result;
+	}
 
 }
